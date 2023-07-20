@@ -9,9 +9,19 @@ $tasks = json_decode($json, true); // Gli converto per andarci a lavorare sul mi
 // sennò lo lascio come NULL
 $new_task = $_POST['task'] ?? NULL;
 $current_task_id = $_POST['id'] ?? NULL;
+$delete = $_POST['deleted'] ?? NULL;
 
+if ($current_task_id && $delete) {
+  foreach ($tasks as $index => $task) {
+    if ($current_task_id == $task['id']) {
+      $tasks[$index]['deleted'] = !$task['deleted'];
+    }
+  }
+  $json_task = json_encode($tasks);
+  file_put_contents($database_url, $json_task);
+}
 
-if ($current_task_id) {
+if ($current_task_id && !$delete) {
   foreach ($tasks as $index => $task) {
     if ($current_task_id == $task['id']) {
       $tasks[$index]['done'] = !$task['done'];
@@ -26,7 +36,8 @@ if ($new_task) {
   $tasks[] = [
     'id' => uniqid(),
     'task' => $new_task,
-    "done" => false
+    "done" => false,
+    "deleted" => false
   ];
   $json_task = json_encode($tasks);   // Lo riconverto in JSON
 

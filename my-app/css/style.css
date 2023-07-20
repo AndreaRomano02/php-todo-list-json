@@ -20,3 +20,8 @@ li:active {
 li.done {
   text-decoration: line-through;
 }
+
+#trash {
+  position: relative;
+  left: 50px;
+}

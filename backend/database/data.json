@@ -1,1 +1,32 @@
-[{"id":"1","task":"Comprare le bistecche","done":false},{"id":"2","task":"Prendere da Bere","done":false},{"id":"3","task":"Pulire casa","done":false},{"id":"4","task":"Preparare la brace","done":false},{"id":"5","task":"Cucinare","done":false},{"id":"64b936faaffa7","task":"ciao","done":false},{"id":"64b9461508849","task":"prova","done":false}]
+[
+  {
+    "id": "1",
+    "task": "Comprare le bistecche",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "id": "2",
+    "task": "Prendere da Bere",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "id": "3",
+    "task": "Pulire casa",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "id": "4",
+    "task": "Preparare la brace",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "id": "5",
+    "task": "Cucinare",
+    "done": false,
+    "deleted": false
+  }
+]

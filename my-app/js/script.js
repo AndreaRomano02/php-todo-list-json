@@ -8,6 +8,7 @@ const app = createApp({
     return {
       tasks: [],
       newTask: '',
+      currentId: null,
     };
   },
   methods: {
@@ -26,7 +27,6 @@ const app = createApp({
 
     setDone(currentId) {
       const data = { id: currentId };
-      console.log('data', data);
       const config = {
         headers: { 'Content-Type': 'multipart/form-data' },
       };
@@ -34,8 +34,22 @@ const app = createApp({
       axios.post(url, data, config).then((res) => {
         res.data.forEach((task, i) => {
           if (task.id == currentId) {
-            console.log('MATCHED TASK', task);
             this.tasks[i].done = !this.tasks[i].done;
+          }
+        });
+      });
+    },
+
+    deleteTask(currentId) {
+      const data = { id: currentId, deleted: true };
+      const config = {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      };
+
+      axios.post(url, data, config).then((res) => {
+        res.data.forEach((task, i) => {
+          if (task.id == currentId) {
+            this.tasks[i].deleted = !this.tasks[i].deleted;
           }
         });
       });

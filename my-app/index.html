@@ -18,6 +18,12 @@
     ></script>
     <!-- VUE -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+    />
     <!-- My Css -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- My Script -->
@@ -33,13 +39,15 @@
       <main class="container">
         <ul class="list-group w-50">
           <li
-            class="list-group-item"
+            class="list-group-item d-flex justify-content-between"
             v-for="task in tasks"
             :key="task.id"
-            @click="setDone(task.id)"
-            :class="{'done' : task.done}"
+            :class="{'done' : task.done, 'd-none': task.deleted}"
           >
-            {{task.task}}
+            <span class="flex-grow-1" @click="setDone(task.id)">{{task.task}}</span>
+            <span class="p-1" @click="deleteTask(task.id)" id="trash"
+              ><i class="fa-solid fa-trash-can text-danger"></i
+            ></span>
           </li>
         </ul>
         <form @submit.prevent="addTask" class="w-50 d-flex">
