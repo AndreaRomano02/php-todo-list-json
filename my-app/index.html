@@ -23,5 +23,23 @@
     <script defer type="text/javascript" src="js/script.js"></script>
     <title>TODO List</title>
   </head>
-  <body class="bg-dark"></body>
+
+  <body class="bg-dark">
+    <header class="text-white text-center">
+      <h1>TODO List</h1>
+    </header>
+    <main class="container">
+      <ul class="list-group w-50">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
+      <form @submit.prevent="" class="w-50 d-flex">
+        <input type="text" class="form-control" placeholder="Inserisci qua un elemento da aggiungere alla lista..." />
+        <button type="submit" class="btn btn-outline-warning">Inserisci</button>
+      </form>
+    </main>
+  </body>
 </html>
