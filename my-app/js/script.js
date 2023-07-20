@@ -19,9 +19,7 @@ const app = createApp({
       };
 
       axios.post(url, data, config).then((res) => {
-        res.data.push(this.newTask);
-
-        this.tasks.push(this.newTask);
+        this.tasks = res.data;
         this.newTask = '';
       });
     },

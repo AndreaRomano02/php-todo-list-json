@@ -1,1 +1,22 @@
-["Comprare le bistecche","Prendere da Bere","Pulire casa","Preparare la brace","Cucinare"]
+[
+  {
+    "id": "1",
+    "task": "Comprare le bistecche"
+  },
+  {
+    "id": "2",
+    "task": "Prendere da Bere"
+  },
+  {
+    "id": "3",
+    "task": "Pulire casa"
+  },
+  {
+    "id": "4",
+    "task": "Preparare la brace"
+  },
+  {
+    "id": "5",
+    "task": "Cucinare"
+  }
+]

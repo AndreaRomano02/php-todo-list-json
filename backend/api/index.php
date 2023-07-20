@@ -11,8 +11,10 @@ $new_task = $_POST['task'] ?? NULL;
 
 // Se c'è
 if ($new_task) {
-  $tasks[] = $new_task; // Lo pusho nell'array dei tasks
-
+  $tasks[] = [
+    'id' => uniqid(),
+    'task' => $new_task,
+  ];
   $json_task = json_encode($tasks);   // Lo riconverto in JSON
 
   file_put_contents($database_url, $json_task); // Vado a sovrascrivere tutto il JSON nel database con il nuovo 
