@@ -1,11 +1,18 @@
+const url = 'http://localhost/php-todo-list-json/backend/api/';
+
 const { createApp } = Vue;
 
 const app = createApp({
   name: 'TODO List',
   data() {
     return {
-      tasks: ['Comprare le bistecche', 'Prendere da Bere', 'Pulire casa', 'Preparare la brace', 'Cucinare'],
+      tasks: [],
     };
+  },
+  created() {
+    axios.get(url).then((res) => {
+      this.tasks = res.data;
+    });
   },
 });
 
