@@ -23,6 +23,23 @@ const app = createApp({
         this.newTask = '';
       });
     },
+
+    setDone(currentId) {
+      const data = { id: currentId };
+      console.log('data', data);
+      const config = {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      };
+
+      axios.post(url, data, config).then((res) => {
+        res.data.forEach((task, i) => {
+          if (task.id == currentId) {
+            console.log('MATCHED TASK', task);
+            this.tasks[i].done = !this.tasks[i].done;
+          }
+        });
+      });
+    },
   },
   created() {
     axios.get(url).then((res) => {

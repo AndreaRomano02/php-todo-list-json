@@ -32,7 +32,15 @@
       </header>
       <main class="container">
         <ul class="list-group w-50">
-          <li class="list-group-item" v-for="task in tasks" :key="task.id">{{task.task}}</li>
+          <li
+            class="list-group-item"
+            v-for="task in tasks"
+            :key="task.id"
+            @click="setDone(task.id)"
+            :class="{'done' : task.done}"
+          >
+            {{task.task}}
+          </li>
         </ul>
         <form @submit.prevent="addTask" class="w-50 d-flex">
           <input

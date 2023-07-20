@@ -8,12 +8,25 @@ $tasks = json_decode($json, true); // Gli converto per andarci a lavorare sul mi
 // Controllo se c'è qualcosa in post che si chiami task se c'è lo salvo in una variabile 
 // sennò lo lascio come NULL
 $new_task = $_POST['task'] ?? NULL;
+$current_task_id = $_POST['id'] ?? NULL;
+
+
+if ($current_task_id) {
+  foreach ($tasks as $index => $task) {
+    if ($current_task_id == $task['id']) {
+      $tasks[$index]['done'] = !$task['done'];
+    }
+  }
+  $json_task = json_encode($tasks);
+  file_put_contents($database_url, $json_task);
+}
 
 // Se c'è
 if ($new_task) {
   $tasks[] = [
     'id' => uniqid(),
     'task' => $new_task,
+    "done" => false
   ];
   $json_task = json_encode($tasks);   // Lo riconverto in JSON
 
