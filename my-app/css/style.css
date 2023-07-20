@@ -1,10 +1,12 @@
 main {
-  height: 90vh;
   display: flex;
   align-items: center;
   gap: 40px;
   margin-top: 100px;
   flex-direction: column;
+}
+body {
+  height: 100%;
 }
 
 li {
